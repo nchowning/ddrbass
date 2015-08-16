@@ -1,0 +1,5 @@
+# Django
+Django==1.8.3
+
+# Database
+MySQL-python==1.2.5
