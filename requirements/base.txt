@@ -1,3 +1,5 @@
+# Packages that will be necessary for all deployments
+
 # Django
 Django==1.8.3
 
