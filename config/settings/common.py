@@ -17,7 +17,6 @@ import environ
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path("ddrbass")
 SECRETS_FILE = str(ROOT_DIR.path("secrets.json"))
-env = environ.Env()
 
 # SECRETS CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -50,8 +49,10 @@ DJANGO_APPS = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
 )
+
 THIRD_PARTY_APPS = (
 )
+
 # Apps specific for this project go here
 LOCAL_APPS = (
 )
@@ -96,8 +97,12 @@ MANAGERS = ADMINS
 # TODO Pull this from secret json file
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": str(ROOT_DIR.path("db.sqlite3")),
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": get_secret("DATABASE"),
+        "USER": get_secret("DATABASE_USER"),
+        "PASSWORD": get_secret("DATABASE_PASSWORD"),
+        "HOST": get_secret("DATABASE_HOST"),
+        "PORT": get_secret("DATABASE_PORT"),
     }
 }
 
@@ -105,7 +110,6 @@ DATABASES = {
 # ------------------------------------------------------------------------------
 TIME_ZONE = "UTC"
 LANGUAGE_CODE = "en-us"
-# SITE_ID = 1  # TODO What is this
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
