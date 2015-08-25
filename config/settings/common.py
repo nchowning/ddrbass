@@ -82,7 +82,9 @@ DEBUG = False
 
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
-# TODO
+FIXTURE_DIRS = (
+    str(APPS_DIR.path('fixtures')),
+)
 
 # MANAGER CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -93,8 +95,6 @@ MANAGERS = ADMINS
 
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
-# TODO Switch to mysql config
-# TODO Pull this from secret json file
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
