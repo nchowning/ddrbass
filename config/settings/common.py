@@ -40,8 +40,8 @@ SECRET_KEY = get_secret("SECRET_KEY")
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
+# Default Django apps:
 DJANGO_APPS = (
-    # Default Django apps:
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -124,10 +124,18 @@ TEMPLATES = [
         ],
         "OPTIONS": {
             "debug": DEBUG,
+            "loaders": [
+                "django.template.loaders.filesystem.Loader",
+                "django.template.loaders.app_directories.Loader",
+            ],
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.static",
+                "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
             ],
         },
