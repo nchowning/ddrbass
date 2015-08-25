@@ -1,0 +1,20 @@
+.messages {
+    padding: 5px;
+    margin: 5px;
+
+    border-radius: 10px;
+    text-align: center;
+    background-color: #abe5c9;
+}
+
+.messages p {
+    line-height: 20px;
+}
+
+.messages p.error {
+    background-color: #ff7f7f;
+}
+
+.messages p.success {
+    background-color: #abe5c9;
+}

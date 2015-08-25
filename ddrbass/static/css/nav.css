@@ -1,0 +1,41 @@
+.nav {
+    max-height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+    vertical-align: middle;
+
+    background-image: url("../images/menu_bg.png");
+}
+
+.nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.nav ul li {
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    display: inline;
+}
+
+.nav ul li a {
+    margin: 0;
+    display: inline-block;
+    min-width: 150px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    font-family: 'Roboto', serif;
+    font-size: 20px;
+}
+
+.nav ul li a:hover {
+    border-color: #FFFFFF;
+    color: #000000;
+    background: #FFFFFF;
+    opacity: 0.5;
+    transition: .2s all
+}

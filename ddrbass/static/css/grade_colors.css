@@ -1,0 +1,33 @@
+.grade_AAA {
+    background-color: #e5f8ff;
+}
+.grade_AA {
+    background-color: #ffffcc;
+}
+.grade_A {
+    background-color: #c7f8c7;
+}
+.grade_B {
+    background-color: #ccccff;
+}
+.grade_C {
+    background-color: #bfa8bc;
+}
+.grade_D {
+    background-color: #ffb2b2;
+}
+.grade_E {
+    background-color: #e9e8e8;
+}
+.grade_pfc {
+    background-color: #ffeb7f;
+}
+.grade_fc {
+    background-color: #a9d299;
+}
+.grade_pass {
+    background-color: #84c0e6;
+}
+.grade_fail {
+    background-color: #ffb2b2;
+}
