@@ -1,0 +1,84 @@
+from django.db import models
+
+
+class Difficulty(models.Model):
+    """
+    Difficulty rating - Beginner, Basic, Difficult, etc...
+    """
+    name = models.CharField(max_length="80")
+    code = models.CharField(max_length="1")
+
+    def __unicode__(self):
+        return self.name
+
+
+class Style(models.Model):
+    """
+    Play style - Single, Double, etc...
+    """
+    name = models.CharField(max_length="80")
+    code = models.CharField(max_length="2")
+
+    def __unicode__(self):
+        return self.name
+
+
+class Grade(models.Model):
+    """
+    Score grade - AAA, AA, A, etc...
+    """
+    name = models.CharField(max_length="5")
+
+    def __unicode__(self):
+        return self.name
+
+
+class Song(models.Model):
+    """
+    Generic Song information
+    """
+    name = models.CharField(max_length="200")
+    name_translation = models.CharField(max_length="200", null=True)
+    artist = models.CharField(max_length="200")
+    artist_translation = models.CharField(max_length="200", null=True)
+    bpm = models.IntegerField()
+    bpm_max = models.IntegerField(null=True)
+    genre = models.CharField(max_length="200", null=True)
+
+    def __unicode__(self):
+        if self.name_translation:
+            return "%s (%s)" % (self.name, self.name_translation)
+        return self.name
+
+
+class Chart(models.Model):
+    """
+    Specific chart for a song
+    """
+    song = models.ForeignKey(Song)
+    style = models.ForeignKey(Style)
+    difficulty = models.ForeignKey(Difficulty)
+
+    difficulty_rating = models.IntegerField()
+    difficulty_rating_old = models.IntegerField(null=True)
+
+    step_count = models.IntegerField()
+    freeze_count = models.IntegerField(default=0)
+    shock_count = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return "%s %s%s" % (self.song.name, self.difficulty.code, self.style.code)  #noqa
+
+    @property
+    def marvelous_value(self):
+        """
+        Return the score value for a single marvelous
+        """
+        return 1000000.0 / (self.step_count + self.freeze_count + self.shock_count)  #noqa
+
+    @property
+    def ok_count(self):
+        """
+        Return the total max OK count (shocks + freezes)
+        """
+        return self.freeze_count + self.shock_count
