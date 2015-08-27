@@ -10,22 +10,22 @@ from .common import *  #noqa
 # DEBUG CONFIGURATION
 # ------------------------------------------------------------------------------
 DEBUG = True
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
 MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-INSTALLED_APPS += ("debug_toolbar", )
+INSTALLED_APPS += ('debug_toolbar', )
 
-INTERNAL_IPS = ("127.0.0.1", )
+INTERNAL_IPS = ('127.0.0.1', )
 
 DEBUG_TOOLBAR_CONFIG = {
-    "DISABLE_PANELS": [
-        "debug_toolbar.panels.redirects.RedirectsPanel",
+    'DISABLE_PANELS': [
+        'debug_toolbar.panels.redirects.RedirectsPanel',
     ],
-    "SHOW_TEMPLATE_CONTEXT": True,
+    'SHOW_TEMPLATE_CONTEXT': True,
 }
 
 # django-extensions
 # ------------------------------------------------------------------------------
-INSTALLED_APPS += ("django_extensions", )
+INSTALLED_APPS += ('django_extensions', )
