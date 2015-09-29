@@ -20,7 +20,7 @@ SECRETS_FILE = str(ROOT_DIR.path('secrets.json'))
 
 # SECRETS CONFIGURATION
 # ------------------------------------------------------------------------------
-with open(str(ROOT_DIR.path('secrets.json'))) as f:
+with open(SECRETS_FILE) as f:
     secrets = json.loads(f.read())
 
 
