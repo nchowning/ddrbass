@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 class Difficulty(models.Model):
     """Difficulty rating - Beginner, Basic, Difficult, etc..."""
-    name = models.CharField(max_length='80')
-    code = models.CharField(max_length='1')
+    name = models.CharField(max_length=80)
+    code = models.CharField(max_length=1)
 
     def __unicode__(self):
         return self.name
@@ -13,8 +13,8 @@ class Difficulty(models.Model):
 
 class Style(models.Model):
     """Play style - Single, Double, etc..."""
-    name = models.CharField(max_length='80')
-    code = models.CharField(max_length='2')
+    name = models.CharField(max_length=80)
+    code = models.CharField(max_length=2)
 
     def __unicode__(self):
         return self.name
@@ -22,7 +22,7 @@ class Style(models.Model):
 
 class Grade(models.Model):
     """Score grade - AAA, AA, A, etc..."""
-    name = models.CharField(max_length='5')
+    name = models.CharField(max_length=5)
 
     def __unicode__(self):
         return self.name
@@ -30,13 +30,13 @@ class Grade(models.Model):
 
 class Song(models.Model):
     """Generic Song information"""
-    name = models.CharField(max_length='200')
-    name_translation = models.CharField(max_length='200', null=True)
-    artist = models.CharField(max_length='200')
-    artist_translation = models.CharField(max_length='200', null=True)
+    name = models.CharField(max_length=200)
+    name_translation = models.CharField(max_length=200, null=True)
+    artist = models.CharField(max_length=200)
+    artist_translation = models.CharField(max_length=200, null=True)
     bpm = models.IntegerField()
     bpm_max = models.IntegerField(null=True)
-    genre = models.CharField(max_length='200', null=True)
+    genre = models.CharField(max_length=200, null=True)
 
     def __unicode__(self):
         if self.name_translation:
@@ -77,9 +77,9 @@ class Chart(models.Model):
 
 class Mix(models.Model):
     """Dance Dance Revolution Mix"""
-    name = models.CharField(max_length='200')
+    name = models.CharField(max_length=200)
     release = models.DateTimeField()
-    region = models.CharField(max_length='100', default='Japan')
+    region = models.CharField(max_length=100, default='Japan')
     songs = models.ManyToManyField(Song)
 
     def __unicode__(self):

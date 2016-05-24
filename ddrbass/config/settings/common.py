@@ -1,11 +1,5 @@
 """
 Django settings for ddrbass project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.8/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 import json
@@ -55,7 +49,7 @@ THIRD_PARTY_APPS = (
 
 # Apps specific for this project go here
 LOCAL_APPS = (
-    'ddrbass.tracker',
+    'tracker',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
