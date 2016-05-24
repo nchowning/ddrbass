@@ -8,8 +8,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3
-APPS_DIR = ROOT_DIR.path('ddrbass')
+ROOT_DIR = (environ.Path(__file__) - 3)
 SECRETS_FILE = str(ROOT_DIR.path('secrets.json'))
 
 # SECRETS CONFIGURATION
@@ -78,7 +77,7 @@ DEBUG = False
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
 FIXTURE_DIRS = (
-    str(APPS_DIR.path('fixtures')),
+    str(ROOT_DIR.path('fixtures')),
 )
 
 # MANAGER CONFIGURATION
@@ -115,7 +114,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            str(APPS_DIR.path('templates')),
+            str(ROOT_DIR.path('templates')),
         ],
         'OPTIONS': {
             'debug': DEBUG,
@@ -139,10 +138,9 @@ TEMPLATES = [
 
 # STATIC FILE CONFIGURATION
 # ------------------------------------------------------------------------------
-STATIC_ROOT = str(ROOT_DIR('static'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    str(APPS_DIR.path('static')),
+    str(ROOT_DIR.path('static')),
 )
 
 # URL CONFIGURATION
